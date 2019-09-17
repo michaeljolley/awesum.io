@@ -14,11 +14,17 @@
 - Tweet anonymous gramercies out of the @AwesumIO account
 - All recorded gramercies are manually moderated
 
-
 ### Data
 
 - Track gramercy with recipient
 - Handle auth via Auth0
+
+### Architecture/stack (tentative)
+
+- FaunaDb for data
+- GraphQL
+- Auth0
+- Vue.js w/ TypeScript
 
 ### vNext
 
@@ -30,11 +36,6 @@
 
 ### Features
 
-How to give an "awe":
-
-- Provide email address rather than Twitter handle?
-
-### Data
-
+- Provide email address rather than Twitter handle for new gramercies
 - Auto-mod gramercies
 - Sender/recipient filters
