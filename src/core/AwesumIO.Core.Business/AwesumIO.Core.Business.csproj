@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AwesumIO.Core.Common\AwesumIO.Core.Common.csproj" />
+    <ProjectReference Include="..\AwesumIO.Core.Data\AwesumIO.Core.Data.csproj" />
+  </ItemGroup>
+
+</Project>
