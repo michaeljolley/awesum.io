@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="TweetinviAPI" Version="4.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\AwesumIO.Core.Common\AwesumIO.Core.Common.csproj" />
     <ProjectReference Include="..\AwesumIO.Core.Data\AwesumIO.Core.Data.csproj" />
   </ItemGroup>
