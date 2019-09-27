@@ -6,7 +6,7 @@ namespace AwesumIO.Core.Common
     /// Represents a "thank-you" from the sender to recipient
     /// </summary>
     /// <remarks>Grammercy is a synonym for gratitude, recognition, etc.</remarks>
-    public class Grammercy
+    public class Gramercy
     {
         /// <summary>
         /// Unique identifier of the Grammercy
@@ -16,7 +16,7 @@ namespace AwesumIO.Core.Common
         /// <summary>
         /// Twitter message Id
         /// </summary>
-        public string MessageId { get; set; }
+        public long MessageId { get; set; }
 
         /// <summary>
         /// Message of thanks to the recipient

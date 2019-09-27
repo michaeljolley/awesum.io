@@ -5,16 +5,16 @@ namespace AwesumIO.Core.Common
     public static class EntityFactory
     {
         /// <summary>
-        /// Creates a well-formed Grammercy ready for the database
+        /// Creates a well-formed Gramercy ready for the database
         /// </summary>
         /// <param name="message">Message of thanks to the recipient</param>
         /// <param name="recipientHandle">Twitter handle of the recipient of the thank you</param>
         /// <param name="senderHandle">Optional Twitter handle of the person thanking</param>
         /// <param name="messageId">Twitter message Id</param>
-        /// <returns>A well-formed Grammercy</returns>
-        public static Grammercy CreateGrammercy(string message, string recipientHandle, string senderHandle, string messageId)
+        /// <returns>A well-formed Gramercy</returns>
+        public static Gramercy CreateGramercy(string message, string recipientHandle, string senderHandle, long messageId)
         {
-            return new Grammercy()
+            return new Gramercy()
             {
                 Id = new Guid().ToString(),
                 TimeStamp = DateTime.UtcNow,

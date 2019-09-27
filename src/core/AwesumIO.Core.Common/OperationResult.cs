@@ -8,6 +8,11 @@ namespace AwesumIO.Core.Common
     /// <typeparam name="T">Generic object returned by the operation</typeparam>
     public class OperationResult
     {
+        public OperationResult()
+        {
+            Code = Constants.Enums.OperationResultCode.Success;
+        }
+
         #region Properties
 
         /// <summary>

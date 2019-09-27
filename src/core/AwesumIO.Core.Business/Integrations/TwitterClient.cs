@@ -1,40 +1,57 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 using Tweetinvi;
+using Tweetinvi.Models;
 using Tweetinvi.Parameters;
 
 using AwesumIO.Core.Common;
-using System.Collections.Generic;
-using Tweetinvi.Models;
+using AwesumIO.Core.Data.FaunaDb;
 
-namespace AwesumIO.Core.Business
+namespace AwesumIO.Core.Business.Integrations
 {
     /// <summary>
     /// Manages all interactions with Twitter
     /// </summary>
-    public class TwitterManager
+    public class TwitterClient : ITwitterService
     {
-        private void Authenticate()
+        private string _consumerKey = Environment.GetEnvironmentVariable("Twitter_ConsumerKey");
+        private string _consumerSecret = Environment.GetEnvironmentVariable("Twitter_ConsumerSecret");
+        private string _accessToken = Environment.GetEnvironmentVariable("Twitter_AccessToken");
+        private string _accessTokenSecret = Environment.GetEnvironmentVariable("Twitter_AccessTokenSecret");
+
+        public TwitterClient()
         {
-            // TODO: Authenticate the app with Twitter API
+            // Applies credentials for the current thread. If used for the first time, set up the ApplicationCredentials
+            Auth.SetUserCredentials(_consumerKey, _consumerSecret, _accessToken, _accessTokenSecret);
         }
 
         // get tweets that include a hashtag
-        public OpResults<string> GetTweets()
+        public async Task<OpResults<ITweet>> GetTweetsAsync()
         {
-            OpResults<string> results = new OpResults<string>();
+            OpResults<ITweet> results = new OpResults<ITweet>();
 
             try
             {
+                FaunaContext faunaContext = new FaunaContext();
+                OpResult<long> lastSinceResult = await faunaContext.GetLastMessageIdAsync();
+
+                if (lastSinceResult.Code != Constants.Enums.OperationResultCode.Success)
+                {
+                    results.CopyFrom(lastSinceResult);
+                    return results;
+                }
+
+                long sinceMessageId = lastSinceResult.Result;
+
                 ISearchTweetsParameters searchParams = new SearchTweetsParameters("#awesum")
                 {
-                    SinceId = 0
+                    SinceId = sinceMessageId
                 };
 
-                Authenticate();
-
                 IEnumerable<ITweet> tweets = Search.SearchTweets(searchParams);
-
+                results.Results = tweets;
             }
             catch (Exception ex)
             {
@@ -61,8 +78,6 @@ namespace AwesumIO.Core.Business
                 // {Random salutation} {recipient}, someone thinks you're #awesum : {message}
 
                 string finalMessage = "";
-
-                Authenticate();
 
                 IPublishTweetParameters tweetParams = new PublishTweetParameters(finalMessage);
                 Tweet.PublishTweet(tweetParams);

@@ -11,11 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ui", "ui", "{BD8BE025-983B-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "functions", "functions", "{D86F156A-173D-459E-88D8-DCF176BE0164}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesumIO.Core.Common", "src\core\AwesumIO.Core.Common\AwesumIO.Core.Common.csproj", "{ADBC2C8B-41CA-4B50-9DC4-7CB12AD2F5A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwesumIO.Core.Common", "src\core\AwesumIO.Core.Common\AwesumIO.Core.Common.csproj", "{ADBC2C8B-41CA-4B50-9DC4-7CB12AD2F5A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesumIO.Core.Data", "src\core\AwesumIO.Core.Data\AwesumIO.Core.Data.csproj", "{CD9EB03E-8F14-4785-A51A-463DB612E520}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwesumIO.Core.Data", "src\core\AwesumIO.Core.Data\AwesumIO.Core.Data.csproj", "{CD9EB03E-8F14-4785-A51A-463DB612E520}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesumIO.Core.Business", "src\core\AwesumIO.Core.Business\AwesumIO.Core.Business.csproj", "{E91E0CB6-60A9-4D30-A4F9-D3D6F6645FE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwesumIO.Core.Business", "src\core\AwesumIO.Core.Business\AwesumIO.Core.Business.csproj", "{E91E0CB6-60A9-4D30-A4F9-D3D6F6645FE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

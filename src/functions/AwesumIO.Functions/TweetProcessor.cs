@@ -1,12 +1,16 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+
+using Tweetinvi.Models;
+
+using AwesumIO.Core.Business;
+using AwesumIO.Core.Common;
 
 namespace AwesumIO.Functions
 {
@@ -16,21 +20,20 @@ namespace AwesumIO.Functions
     public static class TweetProcessor
     {
         [FunctionName("TweetProcessor")]
-        public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+        public static async Task<OperationResult> Run(
+            [ActivityTrigger] ITweet tweet,
             ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
+            log.LogInformation($"TweetProcessor executed at: {DateTime.UtcNow}");
 
-            string name = req.Query["name"];
+            OperationResult result = new OperationResult();
 
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-            name = name ?? data?.name;
+            GramercyManager grammercyManager = new GramercyManager();
+            OpResult<Gramercy> grammercyResult = await grammercyManager.ProcessTweetAsync(tweet);
+            result.CopyFrom(grammercyResult);
 
-            return name != null
-                ? (ActionResult)new OkObjectResult($"Hello, {name}")
-                : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
+            log.LogInformation($"TweetProcessor completed at: {DateTime.UtcNow}");
+            return result;
         }
     }
 }
