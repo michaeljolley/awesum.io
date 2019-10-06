@@ -12,7 +12,7 @@ namespace AwesumIO.Core.Common
         /// <param name="senderHandle">Optional Twitter handle of the person thanking</param>
         /// <param name="messageId">Twitter message Id</param>
         /// <returns>A well-formed Gramercy</returns>
-        public static Gramercy CreateGramercy(string message, string recipientHandle, string senderHandle, long messageId)
+        public static Gramercy CreateGramercy(string message, string recipientHandle, string senderHandle, string messageId)
         {
             return new Gramercy()
             {

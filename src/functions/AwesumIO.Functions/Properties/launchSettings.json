@@ -1,10 +1,7 @@
 {
   "profiles": {
     "AwesumIO.Functions": {
-      "commandName": "Project",
-      "environmentVariables": {
-        "threshold_twitterWatcherError": "2"
-      }
+      "commandName": "Project"
     }
   }
 }
