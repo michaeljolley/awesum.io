@@ -24,7 +24,7 @@ namespace AwesumIO.Core.Data.FaunaDb
             {
                 await _faunaClient.Query(
                             Create(
-                                Ref("grammercy"),
+                                Ref("classes/gramercy"),
                                 Obj("data", Encoder.Encode(gramercy))
                             )
                         );

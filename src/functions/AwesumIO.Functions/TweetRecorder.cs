@@ -26,11 +26,10 @@ namespace AwesumIO.Functions
 
             Tweet tweet = JsonConvert.DeserializeObject<Tweet>(requestBody);
 
-            OperationResult result = new OperationResult();
-
             GramercyManager grammercyManager = new GramercyManager();
             OpResult<Gramercy> grammercyResult = await grammercyManager.ProcessTweetAsync(tweet);
-            result.CopyFrom(grammercyResult);
+
+            log.LogInformation($"TweetRecorder result: {grammercyResult.Code}");
 
             log.LogInformation($"TweetRecorder completed at: {DateTime.UtcNow}");
         }

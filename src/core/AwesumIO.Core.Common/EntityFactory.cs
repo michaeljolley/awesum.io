@@ -16,7 +16,7 @@ namespace AwesumIO.Core.Common
         {
             return new Gramercy()
             {
-                Id = new Guid().ToString(),
+                Id = Guid.NewGuid().ToString(),
                 TimeStamp = DateTime.UtcNow,
 
                 Message = message,
