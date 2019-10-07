@@ -24,7 +24,7 @@ namespace AwesumIO.Core.Business
 
                     foreach (string recipient in recipients)
                     {
-                        Gramercy gramercy = EntityFactory.CreateGramercy(tweet.TweetText, recipient, tweet.UserDetails.UserName, tweet.TweetId);
+                        Gramercy gramercy = EntityFactory.CreateGramercy(tweet.Message, recipient, tweet.SenderHandle, tweet.MessageId);
                         result = await faunaContext.SaveGramercyAsync(gramercy);
                     }
                 }
