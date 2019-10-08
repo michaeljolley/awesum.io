@@ -8,6 +8,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{8486156C-9A1E-4D8B-A6FE-A910AF0110EC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ui", "ui", "{BD8BE025-983B-4053-AEB4-3B49ACD8FED0}"
+	ProjectSection(SolutionItems) = preProject
+		src\ui\index.htm = src\ui\index.htm
+		src\ui\list.htm = src\ui\list.htm
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "functions", "functions", "{D86F156A-173D-459E-88D8-DCF176BE0164}"
 EndProject
@@ -16,6 +20,13 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwesumIO.Core.Data", "src\core\AwesumIO.Core.Data\AwesumIO.Core.Data.csproj", "{CD9EB03E-8F14-4785-A51A-463DB612E520}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwesumIO.Core.Business", "src\core\AwesumIO.Core.Business\AwesumIO.Core.Business.csproj", "{E91E0CB6-60A9-4D30-A4F9-D3D6F6645FE2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_repo", "_repo", "{B30B5F60-AA6F-4AFE-87B6-FACB80ED6E3F}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{09A533F8-A6EB-4DE6-9E5E-461F202B3F0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +56,9 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{83EF65CC-815E-4BCB-897B-1A5693F30FD4} = {D86F156A-173D-459E-88D8-DCF176BE0164}
+		{8486156C-9A1E-4D8B-A6FE-A910AF0110EC} = {09A533F8-A6EB-4DE6-9E5E-461F202B3F0B}
+		{BD8BE025-983B-4053-AEB4-3B49ACD8FED0} = {09A533F8-A6EB-4DE6-9E5E-461F202B3F0B}
+		{D86F156A-173D-459E-88D8-DCF176BE0164} = {09A533F8-A6EB-4DE6-9E5E-461F202B3F0B}
 		{ADBC2C8B-41CA-4B50-9DC4-7CB12AD2F5A2} = {8486156C-9A1E-4D8B-A6FE-A910AF0110EC}
 		{CD9EB03E-8F14-4785-A51A-463DB612E520} = {8486156C-9A1E-4D8B-A6FE-A910AF0110EC}
 		{E91E0CB6-60A9-4D30-A4F9-D3D6F6645FE2} = {8486156C-9A1E-4D8B-A6FE-A910AF0110EC}

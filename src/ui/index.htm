@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Awesum.io</title>
+</head>
+<body>
+
+    <h1>This is Awesum.io</h1>
+
+    <p>Trust me. It's cool.</p>
+
+    <form method="post" action="https://awesum-func.azurewebsites.net/tweetrecorder">
+        <p>
+            <label for="">Recipient</label>
+            <input type="text" required max="15" id="userMentions[0].userName" name="userMentions[0].userName"/>
+        </p>
+        <p>
+            <label for="message">Message</label>
+            <textarea rows="3" required maxlength="228" id="message" name="message"></textarea>
+        </p>
+
+        <button type="submit" value="Save">Save</button>
+    </form>
+
+</body>
+</html>

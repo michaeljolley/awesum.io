@@ -14,13 +14,14 @@ namespace AwesumIO.Core.Common
         /// <returns>A well-formed Gramercy</returns>
         public static Gramercy CreateGramercy(string message, string recipientHandle, string senderHandle, string messageId)
         {
+            string id = Guid.NewGuid().ToString();
             return new Gramercy()
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = id,
                 TimeStamp = DateTime.UtcNow,
 
                 Message = message,
-                MessageId = messageId,
+                MessageId = string.IsNullOrEmpty(messageId) ? id : messageId,
                 RecipientHandle = recipientHandle,
                 SenderHandle = senderHandle
             };
