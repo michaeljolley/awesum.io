@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 using FaunaDB.Client;
@@ -16,18 +18,30 @@ namespace AwesumIO.Core.Data.FaunaDb
 
         private readonly FaunaClient _faunaClient = new FaunaClient(endpoint: _faunaEndpoint, secret: _faunaSecret);
 
-        public async Task<OpResult<Gramercy>> SaveGramercyAsync(Gramercy gramercy)
+        public async Task<OpResult<Gramercy>> SaveGramercyAsync(Gramercy gramercy, Value gramercyValue = null, bool isUpdate = false)
         {
             OpResult<Gramercy> result = new OpResult<Gramercy>();
 
             try
             {
-                await _faunaClient.Query(
-                            Create(
-                                Ref("classes/gramercy"),
-                                Obj("data", Encoder.Encode(gramercy))
-                            )
-                        );
+                if (isUpdate)
+                {
+                    await _faunaClient.Query(
+                                Update(
+                                    gramercyValue.At("ref"),
+                                    Obj("data", Encoder.Encode(gramercy))
+                                )
+                            );
+                }
+                else
+                {
+                    await _faunaClient.Query(
+                                Create(
+                                    Ref("classes/gramercy"),
+                                    Obj("data", Encoder.Encode(gramercy))
+                                )
+                            );
+                }
 
                 result.Result = gramercy;
             }
@@ -44,9 +58,39 @@ namespace AwesumIO.Core.Data.FaunaDb
             throw new NotImplementedException();
         }
 
-        public async Task<OpResult<long>> GetLastMessageIdAsync()
+        public async Task<OpResults<Value>> GetUnsentGramerciesAsync()
         {
-            throw new NotImplementedException();
+            OpResults<Value> results = new OpResults<Value>();
+
+            try
+            {
+                Value result = await _faunaClient.Query(
+                                         Map(
+                                             Paginate(
+                                                 Match(
+                                                     Index("unsent_gramercy"),
+                                                     false,
+                                                     ""
+                                                 )
+                                             ),
+                                             Lambda(
+                                                 "gramercy",
+                                                 Get(
+                                                     Var("gramercy")
+                                                 )
+                                             )
+                                         )
+                                     );
+
+                Value[] data = result.At("data").To<Value[]>().Value;
+                results.Results = data.ToList();
+            }
+            catch (Exception ex)
+            {
+                results.FromException(ex);
+            }
+
+            return results;
         }
     }
 }

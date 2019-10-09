@@ -22,7 +22,7 @@ namespace AwesumIO.Core.Common
 
                 Message = message,
                 MessageId = string.IsNullOrEmpty(messageId) ? id : messageId,
-                RecipientHandle = recipientHandle,
+                RecipientHandle = recipientHandle.Replace("@", ""),
                 SenderHandle = senderHandle
             };
         }

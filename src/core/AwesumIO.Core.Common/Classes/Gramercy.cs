@@ -67,4 +67,12 @@ namespace AwesumIO.Core.Common
         [FaunaField("isRelayed")] 
         public bool IsRelayed { get; set; }
     }
+
+    public static class Extensions
+    {
+        public static Gramercy ToGramercy(this Value value)
+        {
+            return Decoder.Decode<Gramercy>(value.At("data"));
+        }
+    }
 }
