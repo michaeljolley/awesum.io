@@ -8,11 +8,12 @@ namespace AwesumIO.Core.Common
         /// Creates a well-formed Gramercy ready for the database
         /// </summary>
         /// <param name="message">Message of thanks to the recipient</param>
-        /// <param name="recipientHandle">Twitter handle of the recipient of the thank you</param>
+        /// <param name="recipientId">Twitter's unique identifier of the recipient of the thank you</param>
+        /// <param name="recipientHandle">Twitter hadnle of the recipient of the thank you</param>
         /// <param name="senderHandle">Optional Twitter handle of the person thanking</param>
         /// <param name="messageId">Twitter message Id</param>
         /// <returns>A well-formed Gramercy</returns>
-        public static Gramercy CreateGramercy(string message, string recipientHandle, string senderHandle, string messageId)
+        public static Gramercy CreateGramercy(string message, string recipientId, string recipientHandle, string senderHandle, string messageId)
         {
             string id = Guid.NewGuid().ToString();
             return new Gramercy()
@@ -22,7 +23,8 @@ namespace AwesumIO.Core.Common
 
                 Message = message,
                 MessageId = string.IsNullOrEmpty(messageId) ? id : messageId,
-                RecipientHandle = recipientHandle.Replace("@", ""),
+                RecipientId = recipientId,
+                RecipientHandle = recipientHandle,
                 SenderHandle = senderHandle
             };
         }

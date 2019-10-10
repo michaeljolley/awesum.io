@@ -12,7 +12,7 @@
 - [x] Provide recipient Twitter handle, appreciation message to record a gramercy
 - [x] Tweet anonymous gramercies out of the @AwesumIO account
 - [ ] Allow users to "login" with Twitter and view a history of all their recieved gramercies
-- [ ] All recorded gramercies are manually moderated
+- [x] All recorded gramercies are manually moderated
 
 ### Data
 

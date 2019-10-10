@@ -13,11 +13,12 @@ namespace AwesumIO.Core.Common
         public Gramercy() { }
 
         [FaunaConstructor]
-        public Gramercy(string id, string messageId, string message, string recipientHandle, string senderHandle, DateTime timestamp, bool isRelayed)
+        public Gramercy(string id, string messageId, string message, string recipientId, string recipientHandle, string senderHandle, DateTime timestamp, bool isRelayed)
         {
             Id = id;
             MessageId = messageId;
             Message = message;
+            RecipientId = recipientId;
             RecipientHandle = recipientHandle;
             SenderHandle = senderHandle;
             TimeStamp = timestamp;
@@ -41,6 +42,12 @@ namespace AwesumIO.Core.Common
         /// </summary>
         [FaunaField("message")]
         public string Message { get; set; }
+
+        /// <summary>
+        /// Twitter's unique id of the recipient of the thank you
+        /// </summary>
+        [FaunaField("recipientId")]
+        public string RecipientId { get; set; }
 
         /// <summary>
         /// Twitter handle of the recipient of the thank you

@@ -26,7 +26,8 @@ namespace AwesumIO.Core.Business
 
                     foreach (string recipient in recipients)
                     {
-                        Gramercy gramercy = EntityFactory.CreateGramercy(tweet.Message, recipient, tweet.SenderHandle, tweet.MessageId);
+                        string recipientId = tweet.UserMentions.First(f => f.UserName == recipient).Id.ToString();
+                        Gramercy gramercy = EntityFactory.CreateGramercy(tweet.Message, recipientId, recipient, tweet.SenderHandle, tweet.MessageId);
                         result = await faunaContext.SaveGramercyAsync(gramercy);
                     }
                 }
@@ -86,6 +87,31 @@ namespace AwesumIO.Core.Business
             }
 
             return result;
+        }
+
+        public async Task<OpResults<Gramercy>> GetGramerciesByRecipientIdAsync(string recipientId)
+        {
+            OpResults<Gramercy> results = new OpResults<Gramercy>();
+
+            try
+            {
+                FaunaContext faunaContext = new FaunaContext();
+                OpResults<Value> userGramercyResults = await faunaContext.GetGramerciesByRecipientIdAsync(recipientId);
+
+                if (userGramercyResults.Code != Constants.Enums.OperationResultCode.Success)
+                {
+                    results.CopyFrom(userGramercyResults);
+                    return results;
+                }
+
+                results.Results = userGramercyResults.Results.Select(s => s.ToGramercy()).ToList();
+            }
+            catch (Exception ex)
+            {
+                results.FromException(ex);
+            }
+
+            return results;
         }
     }
 }

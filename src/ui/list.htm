@@ -2,10 +2,43 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>awesum.io</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/1.2/auth0-spa-js.production.js"></script>
+    <script type="text/javascript">
+        
+        const _auth0Domain = 'awesum.auth0.com';
+        const _auth0ClientId = 'E6h9DwKBHa0jydQ1uGlYz6Gl4y6MBo9m';
+        const _auth0RedirectUri = 'https://awesumweb.z13.web.core.windows.net/list.htm';
+
+        //with promises
+        createAuth0Client({
+          domain: _auth0Domain,
+          client_id: _auth0ClientId,
+          redirect_uri: _auth0RedirectUri
+        }).then(auth0 => {
+                //in your callback route (<MY_CALLBACK_URL>)
+                window.addEventListener('load', () => {
+                  auth0.handleRedirectCallback().then(redirectResult => {
+                    //logged in. you can get the user profile like this:
+                    auth0.getUser().then(user => {
+                      console.log(user);
+                    });
+                  });
+                });
+        });
+
+    </script>
 </body>
 </html>

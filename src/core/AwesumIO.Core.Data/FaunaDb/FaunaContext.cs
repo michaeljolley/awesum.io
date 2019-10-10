@@ -53,9 +53,38 @@ namespace AwesumIO.Core.Data.FaunaDb
             return result;
         }
 
-        public async Task<OpResults<Gramercy>> GetGramerciesByRecipientHandleAsync(string recipientHandle)
+        public async Task<OpResults<Value>> GetGramerciesByRecipientIdAsync(string recipientId)
         {
-            throw new NotImplementedException();
+            OpResults<Value> results = new OpResults<Value>();
+
+            try
+            {
+                Value result = await _faunaClient.Query(
+                                         Map(
+                                             Paginate(
+                                                 Match(
+                                                     Index("user_gramercy"),
+                                                     recipientId
+                                                 )
+                                             ),
+                                             Lambda(
+                                                 "gramercy",
+                                                 Get(
+                                                     Var("gramercy")
+                                                 )
+                                             )
+                                         )
+                                     );
+
+                Value[] data = result.At("data").To<Value[]>().Value;
+                results.Results = data.ToList();
+            }
+            catch (Exception ex)
+            {
+                results.FromException(ex);
+            }
+
+            return results;
         }
 
         public async Task<OpResults<Value>> GetUnsentGramerciesAsync()
