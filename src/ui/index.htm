@@ -44,7 +44,7 @@
             </div>
 
             <div class="col-sm-12 offset-md-3 col-md-6" id="thanksDiv" style="display:none">
-                Got 'em!
+                Got 'em! <a href="#" id="again">Send another?</a>
             </div>
         </div>
 
@@ -56,19 +56,26 @@
     <script type="text/javascript">
 
         $(document).ready(() => {
+
+            $('#again').click(() => {
+                $('#thanksDiv').hide();
+                $('#formDiv').show();
+                $('#recipient').val('').focus();
+                $('#message').val('');
+            });
+
             $('form').submit((e) => {
                 e.preventDefault();
 
                 const gramercy = {
                     "message": $('#message').val(),
+                    "senderHandle": "",
                     "userMentions": [
                         {
                             "userName": $('#recipient').val()
                         }
                     ]
                 };
-
-                console.log(JSON.stringify(gramercy));
 
                 $.ajax({
                     url: 'https://awesum-func.azurewebsites.net/api/TweetRecorder',

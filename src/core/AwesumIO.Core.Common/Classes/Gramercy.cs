@@ -66,6 +66,13 @@ namespace AwesumIO.Core.Common
         /// <remarks>This is only used when the message was sent anonymously. Meaning there is no SenderHandle.</remarks>
         [FaunaField("isRelayed")] 
         public bool IsRelayed { get; set; }
+
+        /// <summary>
+        /// Has the message been approved for sending to recipient
+        /// </summary>
+        /// <remarks>This is only used when the message was sent anonymously. Meaning there is no SenderHandle.</remarks>
+        [FaunaField("isApproved")]
+        public bool IsApproved { get; set; }
     }
 
     public static class Extensions

@@ -69,8 +69,9 @@ namespace AwesumIO.Core.Data.FaunaDb
                                              Paginate(
                                                  Match(
                                                      Index("unsent_gramercy"),
+                                                     "",
                                                      false,
-                                                     ""
+                                                     true
                                                  )
                                              ),
                                              Lambda(
