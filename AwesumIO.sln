@@ -10,7 +10,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ui", "ui", "{BD8BE025-983B-4053-AEB4-3B49ACD8FED0}"
 	ProjectSection(SolutionItems) = preProject
 		src\ui\index.htm = src\ui\index.htm
-		src\ui\list.htm = src\ui\list.htm
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "functions", "functions", "{D86F156A-173D-459E-88D8-DCF176BE0164}"

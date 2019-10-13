@@ -95,9 +95,15 @@
                         contentType: 'application/json',
                         data: {},
                           success: (gramercies) => {
-                            for (i = 0; i < gramercies.length; i++) {
-                                addGramercy(gramercies[i]);
-                            }
+
+                              if (gramercies.length === 0) {
+                                  addGramercy(null);
+                              }
+                              else {
+                                for (i = 0; i < gramercies.length; i++) {
+                                    addGramercy(gramercies[i]);
+                                }
+                              }
 
                             $('#gramList').show();
                             $('#pLogin').hide();
@@ -126,16 +132,22 @@
             block.classList.add('mb-0');
 
             const p = document.createElement('p');
-            p.innerText = gramercy.message;
 
             const footer = document.createElement('footer');
             footer.classList.add('blockquote-footer');
 
-            const attribution = gramercy.senderHandle.toLowerCase() === 'awesumio' ?
-                'Anonymous' :
-                gramercy.senderHandle;
+            if (gramercy) {
+                p.innerText = gramercy.message;
+                const attribution = gramercy.senderHandle.toLowerCase() === 'awesumio' ?
+                    'Anonymous' :
+                    gramercy.senderHandle;
 
-            footer.innerText = attribution;
+                footer.innerText = attribution;
+            }
+            else {
+                p.innerText = "It doesn't look like we've recorded anything yet, but you're still #awesum in our book!";
+                footer.innerText = 'Awesum.io';
+            }
 
             block.appendChild(p);
             block.appendChild(footer);
