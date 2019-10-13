@@ -64,7 +64,8 @@ namespace AwesumIO.Core.Data.FaunaDb
                                              Paginate(
                                                  Match(
                                                      Index("user_gramercy"),
-                                                     recipientId
+                                                     recipientId,
+                                                     true
                                                  )
                                              ),
                                              Lambda(
