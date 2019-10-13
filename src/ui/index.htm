@@ -49,6 +49,12 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-sm-12 offset-md-3 col-md-6" id="gramList" style="display:none">
+
+            </div>
+        </div>
+
     </div>
 
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
@@ -75,11 +81,27 @@
                   redirect_uri: _auth0RedirectUri
                 })
                 .then(function() {
-                  auth0.getTokenSilently().then(function(token) {
-                    console.log(token);
-                  });
+                  //auth0.getTokenSilently().then(function(token) {
+                  //});
                   auth0.getUser().then(function(user) {
-                    console.log(user);
+                      console.log(user);
+
+                      const recipientId = user.sub.replace('twitter|', '');
+                      console.log(recipientId);
+                      $.ajax({
+                        url: `https://awesum-func.azurewebsites.net/api/GramerciesByUser?recipientId=${recipientId}`,
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: {},
+                          success: (result) => {
+                            console.log(JSON.stringify(result));
+                            $('#gramList').show();
+
+                        },
+                        error: (err) => {
+                            console.log(err);
+                        }
+                      })
                   });
                 });
             });
