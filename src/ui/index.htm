@@ -17,7 +17,7 @@
             <div class="col-sm-12 offset-md-3 col-md-6">
                 <h1>This is Awesum.io</h1>
                 <p>Trust me. It's cool.</p>
-                <p><input type="button" class="btn btn-primary" id="login" value="Login"/></p>
+                <p id="pLogin"><input type="button" class="btn btn-primary" id="login" value="Login"/></p>
             </div>
         </div>
 
@@ -51,7 +51,11 @@
 
         <div class="row">
             <div class="col-sm-12 offset-md-3 col-md-6" id="gramList" style="display:none">
-
+                <div class="row">
+                    <div class="col-md-12">
+                       
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -84,19 +88,19 @@
                   //auth0.getTokenSilently().then(function(token) {
                   //});
                   auth0.getUser().then(function(user) {
-                      console.log(user);
-
                       const recipientId = user.sub.replace('twitter|', '');
-                      console.log(recipientId);
                       $.ajax({
                         url: `https://awesum-func.azurewebsites.net/api/GramerciesByUser?recipientId=${recipientId}`,
                         type: 'post',
                         contentType: 'application/json',
                         data: {},
-                          success: (result) => {
-                            console.log(JSON.stringify(result));
-                            $('#gramList').show();
+                          success: (gramercies) => {
+                            for (i = 0; i < gramercies.length; i++) {
+                                addGramercy(gramercies[i]);
+                            }
 
+                            $('#gramList').show();
+                            $('#pLogin').hide();
                         },
                         error: (err) => {
                             console.log(err);
@@ -109,7 +113,47 @@
           .catch(function(err) {
             console.error(err);
           });
-      });
+        });
+
+        function addGramercy(gramercy) {
+            const divRow = newDiv('row');
+            const divCol = newDiv('col-md-12');
+            const divCard = newDiv('card');
+            const divCardBody = newDiv('card-body');
+
+            const block = document.createElement('blockquote');
+            block.classList.add('blockquote');
+            block.classList.add('mb-0');
+
+            const p = document.createElement('p');
+            p.innerText = gramercy.message;
+
+            const footer = document.createElement('footer');
+            footer.classList.add('blockquote-footer');
+
+            const attribution = gramercy.senderHandle.toLowerCase() === 'awesumio' ?
+                'Anonymous' :
+                gramercy.senderHandle;
+
+            footer.innerText = attribution;
+
+            block.appendChild(p);
+            block.appendChild(footer);
+
+            divCardBody.appendChild(block);
+            divCard.appendChild(divCardBody);
+            divCol.appendChild(divCard);
+            divRow.appendChild(divCol);
+
+            const gramList = document.getElementById('gramList');
+            gramList.appendChild(divRow);
+        }
+
+        function newDiv(cssClass) {
+            const div = document.createElement('div');
+            div.classList.add(cssClass);
+            return div;
+        }
 
         $(document).ready(() => {
 
