@@ -5,23 +5,55 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
     <title>awesum.io</title>
+    <meta name="description" content="" />
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        .spiral-buffer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .logo {
+            width: 250px;
+            margin-top: 25px;
+        }
+        label {
+            color: #fff;
+        }
+        .card {
+            margin-top: 15px
+        }
+        .btn-primary {
+            background-color: rgb(238, 53, 82);
+            border-color: rgb(238, 53, 82);
+        }
+        .btn-primary:hover {
+            background-color: rgb(241, 88, 88);
+            border-color: rgb(241, 88, 88);
+        }
+
+    </style>
 </head>
 <body>
+    <canvas id="spiral-buffer-kingdom" class="spiral-buffer"></canvas>
 
     <div class="container">
 
         <div class="row">
             <div class="col-sm-12 offset-md-3 col-md-6">
-                <h1>This is Awesum.io</h1>
+                <img src="/images/logo.png" class="logo"/>
                 <p>Trust me. It's cool.</p>
-                <p id="pLogin"><input type="button" class="btn btn-primary" id="login" value="Login"/></p>
+                <p id="pLogin"><input type="button" class="btn btn-primary" id="login" value="Login" /></p>
             </div>
         </div>
 
-        <hr/> 
+        <hr />
 
         <div class="row">
 
@@ -53,7 +85,7 @@
             <div class="col-sm-12 offset-md-3 col-md-6" id="gramList" style="display:none">
                 <div class="row">
                     <div class="col-md-12">
-                       
+
                     </div>
                 </div>
             </div>
@@ -65,60 +97,63 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdn.auth0.com/js/auth0-spa-js/1.2/auth0-spa-js.production.js"></script>
-    
+    <script src="/js/lodash.min.js"></script>
+    <script src="/js/pace.min.js"></script>
+    <script src="/js/spiral-buffer-kingdom.js"></script>
+
     <script type="text/javascript">
 
         const _auth0Domain = 'awesum.auth0.com';
         const _auth0ClientId = 'E6h9DwKBHa0jydQ1uGlYz6Gl4y6MBo9m';
         const _auth0RedirectUri = 'https://awesumweb.z13.web.core.windows.net';
 
-        $(function() {
-        createAuth0Client({
-          domain: _auth0Domain,
-          client_id: _auth0ClientId
-        })
-          .then(function(auth0) {
-            window.auth0 = auth0;
-            $('#login').click(function() {
-              auth0
-                .loginWithPopup({
-                  redirect_uri: _auth0RedirectUri
+        $(function () {
+            createAuth0Client({
+                domain: _auth0Domain,
+                client_id: _auth0ClientId
+            })
+                .then(function (auth0) {
+                    window.auth0 = auth0;
+                    $('#login').click(function () {
+                        auth0
+                            .loginWithPopup({
+                                redirect_uri: _auth0RedirectUri
+                            })
+                            .then(function () {
+                                //auth0.getTokenSilently().then(function(token) {
+                                //});
+                                auth0.getUser().then(function (user) {
+                                    const recipientId = user.sub.replace('twitter|', '');
+                                    $.ajax({
+                                        url: `https://awesum-func.azurewebsites.net/api/GramerciesByUser?recipientId=${recipientId}`,
+                                        type: 'post',
+                                        contentType: 'application/json',
+                                        data: {},
+                                        success: (gramercies) => {
+
+                                            if (gramercies.length === 0) {
+                                                addGramercy(null);
+                                            }
+                                            else {
+                                                for (i = 0; i < gramercies.length; i++) {
+                                                    addGramercy(gramercies[i]);
+                                                }
+                                            }
+
+                                            $('#gramList').show();
+                                            $('#pLogin').hide();
+                                        },
+                                        error: (err) => {
+                                            console.log(err);
+                                        }
+                                    })
+                                });
+                            });
+                    });
                 })
-                .then(function() {
-                  //auth0.getTokenSilently().then(function(token) {
-                  //});
-                  auth0.getUser().then(function(user) {
-                      const recipientId = user.sub.replace('twitter|', '');
-                      $.ajax({
-                        url: `https://awesum-func.azurewebsites.net/api/GramerciesByUser?recipientId=${recipientId}`,
-                        type: 'post',
-                        contentType: 'application/json',
-                        data: {},
-                          success: (gramercies) => {
-
-                              if (gramercies.length === 0) {
-                                  addGramercy(null);
-                              }
-                              else {
-                                for (i = 0; i < gramercies.length; i++) {
-                                    addGramercy(gramercies[i]);
-                                }
-                              }
-
-                            $('#gramList').show();
-                            $('#pLogin').hide();
-                        },
-                        error: (err) => {
-                            console.log(err);
-                        }
-                      })
-                  });
+                .catch(function (err) {
+                    console.error(err);
                 });
-            });
-          })
-          .catch(function(err) {
-            console.error(err);
-          });
         });
 
         function addGramercy(gramercy) {
@@ -204,6 +239,10 @@
                 })
             });
         });
+
+
+
+
     </script>
 
 </body>

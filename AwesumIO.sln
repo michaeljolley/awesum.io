@@ -8,9 +8,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{8486156C-9A1E-4D8B-A6FE-A910AF0110EC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ui", "ui", "{BD8BE025-983B-4053-AEB4-3B49ACD8FED0}"
-	ProjectSection(SolutionItems) = preProject
-		src\ui\index.htm = src\ui\index.htm
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "functions", "functions", "{D86F156A-173D-459E-88D8-DCF176BE0164}"
 EndProject
@@ -27,6 +24,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_repo", "_repo", "{B30B5F60
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{09A533F8-A6EB-4DE6-9E5E-461F202B3F0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "front", "front", "{980F67C6-6065-446A-948C-A98B3947379D}"
+	ProjectSection(SolutionItems) = preProject
+		src\ui\front\index.htm = src\ui\front\index.htm
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "css", "css", "{0EB91BD4-281A-42F3-8B73-0A762DCD1944}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "js", "js", "{3342D93B-4AC9-4829-8890-4AA4DF4D0379}"
+	ProjectSection(SolutionItems) = preProject
+		src\ui\front\js\lodash.min.js = src\ui\front\js\lodash.min.js
+		src\ui\front\js\pace.min.js = src\ui\front\js\pace.min.js
+		src\ui\front\js\spiral-buffer-kingdom.js = src\ui\front\js\spiral-buffer-kingdom.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{67144DA3-BC1A-4B11-9201-9E7B7C9DF850}"
+	ProjectSection(SolutionItems) = preProject
+		src\ui\front\images\logo.png = src\ui\front\images\logo.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,6 +78,10 @@ Global
 		{ADBC2C8B-41CA-4B50-9DC4-7CB12AD2F5A2} = {8486156C-9A1E-4D8B-A6FE-A910AF0110EC}
 		{CD9EB03E-8F14-4785-A51A-463DB612E520} = {8486156C-9A1E-4D8B-A6FE-A910AF0110EC}
 		{E91E0CB6-60A9-4D30-A4F9-D3D6F6645FE2} = {8486156C-9A1E-4D8B-A6FE-A910AF0110EC}
+		{980F67C6-6065-446A-948C-A98B3947379D} = {BD8BE025-983B-4053-AEB4-3B49ACD8FED0}
+		{0EB91BD4-281A-42F3-8B73-0A762DCD1944} = {980F67C6-6065-446A-948C-A98B3947379D}
+		{3342D93B-4AC9-4829-8890-4AA4DF4D0379} = {980F67C6-6065-446A-948C-A98B3947379D}
+		{67144DA3-BC1A-4B11-9201-9E7B7C9DF850} = {980F67C6-6065-446A-948C-A98B3947379D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {489D63B3-5A59-4AB7-915E-E36338D6AAEB}
