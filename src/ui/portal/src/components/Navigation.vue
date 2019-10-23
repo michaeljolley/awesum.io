@@ -1,16 +1,20 @@
 <template>
   <div>
-      <div >
-        <input type="button" class="btn btn-primary" id="login" value="Login" />
+      <div v-if="!$auth.isAuthenticated && !$auth.loading">
+        <a href="#" @click.prevent="login" class="btn btn-primary">
+          Login
+        </a>
       </div>
-      <div >
+      <div v-if="$auth.isAuthenticated && !$auth.loading">
         <div class="btn-group">
           <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            
+            <img :src="user.picture"/> {{user.name}}
           </button>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#">Moderation</a>
-            <a class="dropdown-item" href="#">Logout</a>
+            <a class="dropdown-item" href="#" @click.prevent="logout">
+              Log Out <span class="pull-right glyphicon glyphicon-log-out"></span>
+            </a>
           </div>
         </div>
       </div>
@@ -20,11 +24,21 @@
 <script>
 export default {
   name: 'Navigation',
-  prop: {
-  },
   computed: {
-    loggedInUser () {
-      return this.$store.user
+    user() {
+      if (this.$auth.user) {
+        return this.$auth.user;
+      }
+      return null;
+    }
+  },
+  methods: {
+    login() {
+      this.$auth.loginWithRedirect();
+    },
+    logout() {
+      this.$auth.logout();
+      this.$router.push({ path: '/' });
     }
   }
 }

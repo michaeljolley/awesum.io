@@ -8,6 +8,8 @@
 *.sln.docstates
 launchSettings.json
 
+.env
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
