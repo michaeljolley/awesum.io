@@ -70,6 +70,7 @@ export const createAuthService = ({
 
         this.user = await this.auth0Client.getUser();
         this.isAuthenticated = true;
+
         this.$store.dispatch("login", this.user);
       },
       async handleRedirectCallback() {
@@ -90,6 +91,16 @@ export const createAuthService = ({
       },
       getIdTokenClaims(o) {
         return this.auth0Client.getIdTokenClaims(o);
+      },
+      hasTokenClaim(claimName) {
+        if (this.user) {
+          const roles = this.user[
+            "http://schemas.microsoft.com/ws/2008/06/identity/claims/roles"
+          ];
+          return roles && roles.includes(claimName);
+        }
+
+        return false;
       },
       getTokenSilently(o) {
         return this.auth0Client.getTokenSilently(o);

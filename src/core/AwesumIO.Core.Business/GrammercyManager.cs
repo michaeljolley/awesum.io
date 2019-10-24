@@ -113,5 +113,30 @@ namespace AwesumIO.Core.Business
 
             return results;
         }
+
+        public async Task<OpResults<Gramercy>> GetPendingGramerciesAsync()
+        {
+            OpResults<Gramercy> results = new OpResults<Gramercy>();
+
+            try
+            {
+                FaunaContext faunaContext = new FaunaContext();
+                OpResults<Value> pendingGramercyResults = await faunaContext.GetPendingGramerciesAsync();
+
+                if (pendingGramercyResults.Code != Constants.Enums.OperationResultCode.Success)
+                {
+                    results.CopyFrom(pendingGramercyResults);
+                    return results;
+                }
+
+                results.Results = pendingGramercyResults.Results.Select(s => s.ToGramercy()).ToList();
+            }
+            catch (Exception ex)
+            {
+                results.FromException(ex);
+            }
+
+            return results;
+        }
     }
 }

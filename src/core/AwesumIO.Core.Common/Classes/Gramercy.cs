@@ -75,11 +75,10 @@ namespace AwesumIO.Core.Common
         public bool IsRelayed { get; set; }
 
         /// <summary>
-        /// Has the message been approved for sending to recipient
+        /// Status of the message
         /// </summary>
-        /// <remarks>This is only used when the message was sent anonymously. Meaning there is no SenderHandle.</remarks>
-        [FaunaField("isApproved")]
-        public bool IsApproved { get; set; }
+        [FaunaField("status")]
+        public Constants.Enums.GramercyStatus Status { get; set; }
     }
 
     public static class Extensions

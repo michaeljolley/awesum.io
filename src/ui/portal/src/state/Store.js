@@ -8,17 +8,18 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    gramercies: []
-  },
-  getters: {
-    usersGramercies: state => state.gramercies
+    userGramercies: [],
+    pendingGramercies: []
   },
   mutations: {
     login(state, gramercies) {
-      state.gramercies = gramercies;
+      state.userGramercies = gramercies;
     },
     logout(state) {
-      state.gramercies = null;
+      state.userGramercies = null;
+    },
+    loadPending(state, gramercies) {
+      state.pendingGramercies = gramercies;
     }
   },
   actions: {
@@ -26,7 +27,7 @@ export default new Vuex.Store({
       const recipientId = user.sub.replace("twitter|", "");
       const url = `https://awesum-func.azurewebsites.net/api/GramerciesByUser?recipientid=${recipientId}`;
 
-      const gramercies = await axios.post(
+      const userGramercies = await axios.post(
         url,
         {},
         {
@@ -34,10 +35,23 @@ export default new Vuex.Store({
         }
       );
 
-      context.commit(types.USER_LOG_IN, gramercies.data);
+      context.commit(types.USER_LOG_IN, userGramercies.data);
     },
     logout(context) {
       context.commit(types.USER_LOG_OUT);
+    },
+    async loadPending(context) {
+      const url = `https://awesum-func.azurewebsites.net/api/PendingGramercies`;
+
+      const pendingGramercies = await axios.post(
+        url,
+        {},
+        {
+          "Content-Type": "application/json"
+        }
+      );
+
+      context.commit(types.LOAD_PENDING, pendingGramercies.data);
     }
   }
 });

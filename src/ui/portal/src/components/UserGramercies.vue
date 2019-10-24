@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="row" v-for="gramercy in gramercies" :key="gramercy.id">
+    <div class="row" v-for="gramercy in userGramercies" :key="gramercy.id">
       <div class="col-md-12">
         <div class="card">
           <div class="card-body">
@@ -20,7 +20,7 @@ import { mapState } from "vuex";
 
 export default {
   name: "UserGramercies",
-  computed: { ...mapState(["gramercies"]) }
+  computed: { ...mapState(["userGramercies"]) }
 };
 </script>
 

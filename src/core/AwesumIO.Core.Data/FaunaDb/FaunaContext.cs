@@ -65,7 +65,7 @@ namespace AwesumIO.Core.Data.FaunaDb
                                                  Match(
                                                      Index("user_gramercy"),
                                                      recipientId,
-                                                     true
+                                                     (int)Constants.Enums.GramercyStatus.Approved
                                                  )
                                              ),
                                              Lambda(
@@ -101,7 +101,7 @@ namespace AwesumIO.Core.Data.FaunaDb
                                                      Index("unsent_gramercy"),
                                                      "",
                                                      false,
-                                                     true
+                                                     (int)Constants.Enums.GramercyStatus.Approved
                                                  )
                                              ),
                                              Lambda(
@@ -115,6 +115,58 @@ namespace AwesumIO.Core.Data.FaunaDb
 
                 Value[] data = result.At("data").To<Value[]>().Value;
                 results.Results = data.ToList();
+            }
+            catch (Exception ex)
+            {
+                results.FromException(ex);
+            }
+
+            return results;
+        }
+
+        public async Task<OpResults<Value>> GetPendingGramerciesAsync()
+        {
+            OpResults<Value> results = new OpResults<Value>();
+
+            try
+            {
+                Value pendingResults = await _faunaClient.Query(
+                                         Map(
+                                             Paginate(
+                                                 Match(
+                                                     Index("status_gramercy"),
+                                                     (int)Constants.Enums.GramercyStatus.Pending
+                                                 )
+                                             ),
+                                             Lambda(
+                                                 "gramercy",
+                                                 Get(
+                                                     Var("gramercy")
+                                                 )
+                                             )
+                                         )
+                                     );
+                Value heldResults = await _faunaClient.Query(
+                                         Map(
+                                             Paginate(
+                                                 Match(
+                                                     Index("status_gramercy"),
+                                                     (int)Constants.Enums.GramercyStatus.Hold
+                                                 )
+                                             ),
+                                             Lambda(
+                                                 "gramercy",
+                                                 Get(
+                                                     Var("gramercy")
+                                                 )
+                                             )
+                                         )
+                                     );
+
+                List<Value> data = pendingResults.At("data").To<Value[]>().Value.ToList();
+                data.AddRange(heldResults.At("data").To<Value[]>().Value.ToList());
+
+                results.Results = data;
             }
             catch (Exception ex)
             {
