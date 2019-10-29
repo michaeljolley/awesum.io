@@ -19,11 +19,12 @@
 - [x] Track gramercy with recipient
 - [x] Handle auth via Auth0
 
-### Architecture/stack (tentative)
+### Architecture/stack
 
 - FaunaDb for data
 - Auth0
 - Azure Functions for UI
+- Vue.js to portal
 
 ### vNext
 

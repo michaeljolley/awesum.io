@@ -78,7 +78,7 @@ namespace AwesumIO.Core.Common
         /// Status of the message
         /// </summary>
         [FaunaField("status")]
-        public Constants.Enums.GramercyStatus Status { get; set; }
+        public int Status { get; set; }
     }
 
     public static class Extensions

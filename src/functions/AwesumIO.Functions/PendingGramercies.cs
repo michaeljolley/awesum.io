@@ -9,38 +9,52 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-using AwesumIO.Core.Common;
+using AwesumIO.Functions.Auth;
 using AwesumIO.Core.Business;
+using AwesumIO.Core.Common;
 
 namespace AwesumIO.Functions
 {
-    public static class PendingGramercies
+    public class PendingGramercies
     {
+        private readonly IAccessTokenProvider _tokenProvider;
+        private string moderatorRoleName = Environment.GetEnvironmentVariable("moderatorRoleName");
+
+        public PendingGramercies(IAccessTokenProvider tokenProvider)
+        {
+            _tokenProvider = tokenProvider;
+        }
+
         [FunctionName("PendingGramercies")]
-        public static async Task<IActionResult> Run(
+        public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req,
             ILogger log)
         {
             log.LogInformation($"PendingGramercies executed at: {DateTime.UtcNow}");
 
-            //string recipientId = req.Query["recipientId"];
-
-            //if (string.IsNullOrEmpty(recipientId))
-            //{
-            //    return new JsonResult(new List<Gramercy>());
-            //}
+            var result = await _tokenProvider.ValidateToken(req);
 
             try
             {
-                GramercyManager gramercyManager = new GramercyManager();
-                OpResults<Gramercy> gramercyResults = await gramercyManager.GetPendingGramerciesAsync();
-
-                if (gramercyResults.Code != Constants.Enums.OperationResultCode.Success)
+                if (result.Status == AccessTokenStatus.Valid &&
+                    result.Principal.IsInRole(moderatorRoleName))
                 {
-                    log.LogInformation($"PendingGramercies error: {gramercyResults.Message}");
-                }
+                    GramercyManager gramercyManager = new GramercyManager();
 
-                return new JsonResult(gramercyResults.Results);
+                    OpResults<Gramercy> gramercyResults = await gramercyManager.GetPendingGramerciesAsync();
+
+                    if (gramercyResults.Code != Constants.Enums.OperationResultCode.Success)
+                    {
+                        log.LogInformation($"PendingGramercies error: {gramercyResults.Message}");
+                        return new BadRequestResult();
+                    }
+
+                    return new JsonResult(gramercyResults.Results);
+                }
+                else
+                {
+                    return new UnauthorizedResult();
+                }
             }
             finally
             {
