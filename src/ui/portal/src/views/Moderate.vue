@@ -1,13 +1,24 @@
 <template>
   <div>
-     <h2>Moderate</h2>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-9">
+        <h2>Moderate</h2>
+        <ModerateGramercies />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import ModerateGramercies from "@/components/ModerateGramercies.vue";
+
 export default {
-  name: 'Moderate'
-}
+  name: "Moderate",
+  components: {
+    ModerateGramercies
+  }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

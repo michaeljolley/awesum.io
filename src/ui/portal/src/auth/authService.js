@@ -95,7 +95,7 @@ export const createAuthService = ({
       hasTokenClaim(claimName) {
         if (this.user) {
           const roles = this.user[
-            "http://schemas.microsoft.com/ws/2008/06/identity/claims/roles"
+            "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
           ];
           return roles && roles.includes(claimName);
         }

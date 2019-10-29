@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
+import getInstance from "../auth/authService";
 
 import * as types from "./Mutations";
 
@@ -43,11 +44,17 @@ export default new Vuex.Store({
     async loadPending(context) {
       const url = `https://awesum-func.azurewebsites.net/api/PendingGramercies`;
 
+      const auth = getInstance;
+
+      // eslint-disable-next-line no-console
+      console.dir(auth);
+
       const pendingGramercies = await axios.post(
         url,
         {},
         {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          Authorization: `BEARER ${this.$auth.user}`
         }
       );
 

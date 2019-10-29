@@ -1,7 +1,6 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import store from "./state/Store";
 import Axios from "./plugins/axios";
 import AuthPlugin from "./plugins/auth";
 
@@ -20,6 +19,8 @@ Vue.use(AuthPlugin, {
     );
   }
 });
+
+import store from "./state/Store";
 
 new Vue({
   store,
