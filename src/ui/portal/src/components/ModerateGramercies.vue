@@ -22,7 +22,9 @@ export default {
   name: "ModerateGramercies",
   computed: { ...mapState(["pendingGramercies"]) },
   created: function() {
-    this.$store.dispatch("loadPending");
+    this.$store.dispatch("loadPending", {
+      user: this.$auth.user
+    });
   }
 };
 </script>

@@ -67,7 +67,6 @@ export const createAuthService = ({
         } finally {
           this.popupOpen = false;
         }
-
         this.user = await this.auth0Client.getUser();
         this.isAuthenticated = true;
 
