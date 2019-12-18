@@ -50,7 +50,9 @@ export const createAuthService = ({
         this.isAuthenticated = await this.auth0Client.isAuthenticated();
         this.user = await this.auth0Client.getUser();
         if (this.isAuthenticated) {
-          this.$store.dispatch("login", this.user);
+          this.$store.dispatch("login", this.user).then(() => {
+            this.$store.dispatch("loaded");
+          });
         }
         this.loading = false;
       }
@@ -70,7 +72,9 @@ export const createAuthService = ({
         this.user = await this.auth0Client.getUser();
         this.isAuthenticated = true;
 
-        this.$store.dispatch("login", this.user);
+        this.$store.dispatch("login", this.user).then(() => {
+          this.$store.dispatch("loaded");
+        });
       },
       async handleRedirectCallback() {
         this.loading = true;
@@ -78,7 +82,9 @@ export const createAuthService = ({
           await this.auth0Client.handleRedirectCallback();
           this.user = await this.auth0Client.getUser();
           this.isAuthenticated = true;
-          this.$store.dispatch("login", this.user);
+          this.$store.dispatch("login", this.user).then(() => {
+            this.$store.dispatch("loaded");
+          });
         } catch (e) {
           this.error = e;
         } finally {

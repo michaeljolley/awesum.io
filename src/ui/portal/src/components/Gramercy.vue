@@ -12,12 +12,17 @@
     <div class="card-footer" v-if="moderate">
       <div class="row">
         <div class="col-md-6">
-          <button v-on:click="save(100)" class="btn btn-primary">Approve</button>
+          <button v-on:click="save(100)" v-bind:disabled="loading" class="btn btn-primary">Approve</button>
         </div>
         <div class="col-md-6 text-right">
           <div class="btn-group">
-            <button v-if="!isHeld" v-on:click="save(80)" class="btn btn-secondary">Hold</button>
-            <button v-on:click="save(199)" class="btn btn-danger">Reject</button>
+            <button
+              v-if="!isHeld"
+              v-bind:disabled="loading"
+              v-on:click="save(80)"
+              class="btn btn-secondary"
+            >Hold</button>
+            <button v-on:click="save(199)" v-bind:disabled="loading" class="btn btn-danger">Reject</button>
           </div>
         </div>
       </div>
@@ -26,6 +31,8 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "Gramercy",
   props: {
@@ -36,6 +43,7 @@ export default {
     moderate: Boolean
   },
   computed: {
+    ...mapState(["loading"]),
     twitterUrl: function() {
       return `https://twitter.com/${this.senderHandle}`;
     },

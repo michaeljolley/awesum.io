@@ -35,6 +35,8 @@ export default new Vuex.Store({
   },
   actions: {
     async login(context, user) {
+      context.commit(types.LOADING, true);
+
       const recipientId = user.sub.replace("twitter|", "");
       const url = `https://awesum-func.azurewebsites.net/api/GramerciesByUser?recipientId=${recipientId}`;
 
