@@ -1,41 +1,15 @@
-# awesum.io
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/1228996/71058284-e69fe800-2124-11ea-9c61-09587a7aa013.png"/>
+</p>
 
-## MVP
+| master                                                                                                                                                                                                        | Contributors                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| [![Build Status](https://dev.azure.com/michaeljolley/awesum.io/_apis/build/status/awesum.io?branchName=master)](https://dev.azure.com/michaeljolley/awesum.io/_build/latest?definitionId=8&branchName=master) | [![All Contributors](https://img.shields.io/badge/all_contributors-25-orange.svg?style=flat-square)](#contributors) |
 
-### Platforms
+## Release Notes
 
-- Twitter
+See [CHANGELOG.md](CHANGELOG.md)
 
-### Features
+## Contributing
 
-- [x] Tweet @ someone with the #awesum hashtag to record a gramercy
-- [x] Provide recipient Twitter handle, appreciation message to record a gramercy
-- [x] Tweet anonymous gramercies out of the @AwesumIO account
-- [x] Allow users to "login" with Twitter and view a history of all their recieved gramercies
-- [x] All recorded gramercies are manually moderated
-
-### Data
-
-- [x] Track gramercy with recipient
-- [x] Handle auth via Auth0
-
-### Architecture/stack
-
-- FaunaDb for data
-- Auth0
-- Azure Functions for UI
-- Vue.js to portal
-
-### vNext
-
-### Platforms
-
-- Instagram
-- LinkedIn
-- Dev.to
-
-### Features
-
-- Provide email address rather than Twitter handle for new gramercies
-- Auto-mod gramercies
-- Sender/recipient filters
+Want to contribute? Check out our [Code of Conduct](CODE_OF_CONDUCT.md) and [Contributing](CONTRIBUTING.md) docs. This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
