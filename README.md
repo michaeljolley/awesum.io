@@ -5,7 +5,7 @@
 | master                                                                                                                                                                                                        | Contributors                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [![Build Status](https://dev.azure.com/michaeljolley/awesum.io/_apis/build/status/awesum.io?branchName=master)](https://dev.azure.com/michaeljolley/awesum.io/_build/latest?definitionId=8&branchName=master) | <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END --> |
 
 ## Release Notes
@@ -25,6 +25,7 @@ Thanks goes to these wonderful people ✨ ([emoji key](https://allcontributors.o
   <tr>
     <td align="center"><a href="https://michaeljolley.com/"><img src="https://avatars2.githubusercontent.com/u/1228996?v=4" width="100px;" alt=""/><br /><sub><b>Michael Jolley</b></sub></a><br /><a href="https://github.com/MichaelJolley/awesum.io/commits?author=michaeljolley" title="Code">💻</a> <a href="#ideas-michaeljolley" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/MichaelJolley/awesum.io/commits?author=michaeljolley" title="Documentation">📖</a></td>
     <td align="center"><a href="https://c-j.tech"><img src="https://avatars0.githubusercontent.com/u/3969086?v=4" width="100px;" alt=""/><br /><sub><b>Chris Jones</b></sub></a><br /><a href="https://github.com/MichaelJolley/awesum.io/commits?author=cmjchrisjones" title="Documentation">📖</a></td>
+    <td align="center"><a href="http://iamnotmyself.com"><img src="https://avatars3.githubusercontent.com/u/73120?v=4" width="100px;" alt=""/><br /><sub><b>Bobby Johnson</b></sub></a><br /><a href="https://github.com/MichaelJolley/awesum.io/commits?author=notmyself" title="Code">💻</a> <a href="#security-notmyself" title="Security">🛡️</a></td>
   </tr>
 </table>
 
