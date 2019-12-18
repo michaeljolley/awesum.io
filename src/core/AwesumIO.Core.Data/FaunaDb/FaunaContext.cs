@@ -88,6 +88,40 @@ namespace AwesumIO.Core.Data.FaunaDb
             return results;
         }
 
+        public async Task<OpResult<Value>> GetGramercyByIdAsync(string grammercyId)
+        {
+            OpResult<Value> result = new OpResult<Value>();
+
+            try
+            {
+                Value valueResult = await _faunaClient.Query(
+                                         Map(
+                                             Paginate(
+                                                 Match(
+                                                     Index("id_grammercy"),
+                                                     grammercyId
+                                                 )
+                                             ),
+                                             Lambda(
+                                                 "gramercy",
+                                                 Get(
+                                                     Var("gramercy")
+                                                 )
+                                             )
+                                         )
+                                     );
+
+                Value[] data = valueResult.At("data").To<Value[]>().Value;
+                result.Result = data.FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                result.FromException(ex);
+            }
+
+            return result;
+        }
+
         public async Task<OpResults<Value>> GetUnsentGramerciesAsync()
         {
             OpResults<Value> results = new OpResults<Value>();

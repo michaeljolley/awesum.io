@@ -138,5 +138,39 @@ namespace AwesumIO.Core.Business
 
             return results;
         }
+
+        public async Task<OpResult<Gramercy>> UpdateGrammercy(string grammercyId, int status)
+        {
+            OpResult<Gramercy> result = new OpResult<Gramercy>();
+
+            try
+            {
+                FaunaContext faunaContext = new FaunaContext();
+
+                OpResult<Value> getGrammercyResult = await faunaContext.GetGramercyByIdAsync(grammercyId);
+
+                if (getGrammercyResult.Code == Constants.Enums.OperationResultCode.Success &&
+                    getGrammercyResult.Result != null)
+                {
+                    Value gramercyValue = getGrammercyResult.Result;
+
+                    Gramercy gramercy = gramercyValue.ToGramercy();
+                    gramercy.Status = status;
+
+                    OpResult<Gramercy> saveGrammercyResult = await faunaContext.SaveGramercyAsync(gramercy, gramercyValue, true);
+                    result.Result = saveGrammercyResult.Result;
+                }
+                else
+                {
+                    result.CopyFrom(getGrammercyResult);
+                }
+            }
+            catch (Exception ex)
+            {
+                result.FromException(ex);
+            }
+
+            return result;
+        }
     }
 }

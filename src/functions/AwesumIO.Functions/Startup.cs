@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 
 using AwesumIO.Functions.Auth;
 using Microsoft.IdentityModel.Logging;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 [assembly: FunctionsStartup(typeof(AwesumIO.Functions.Startup))]
 namespace AwesumIO.Functions
@@ -14,9 +15,25 @@ namespace AwesumIO.Functions
     /// </summary>
     public class Startup : FunctionsStartup
     {
+        public void ConfigureServices(IServiceCollection services)
+        {
+            //services.AddAuthenticationCore(options =>
+            //{
+            //    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            //}).AddJwtBearer(options =>
+            //{
+            //    options.Authority = "https://awesum.auth0.com/";
+            //    options.Audience = "https://api.awesum.io";
+            //});
+        }
+
         public override void Configure(IFunctionsHostBuilder builder)
         {
             IdentityModelEventSource.ShowPII = true;
+
+
+            //app.UseAuthentication();
 
             // Get the configuration files for the OAuth token issuer
             var issuerToken = Environment.GetEnvironmentVariable("IssuerToken");

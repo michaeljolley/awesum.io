@@ -1,10 +1,7 @@
 <template>
   <div>
     <div class="row">
-      <div class="col-md-3">
-        <SendAnonymous />
-      </div>
-      <div class="col-md-9">
+      <div class="col-md-12">
         <h2>Home</h2>
         <div v-if="!$auth.isAuthenticated && !$auth.loading">
           <p>Who dat?</p>
@@ -18,13 +15,11 @@
 </template>
 
 <script>
-import SendAnonymous from "@/components/SendAnonymous.vue";
 import UserGramercies from "@/components/UserGramercies.vue";
 
 export default {
   name: "Home",
   components: {
-    SendAnonymous,
     UserGramercies
   }
 };

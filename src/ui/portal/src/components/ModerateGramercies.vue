@@ -1,30 +1,35 @@
 <template>
-  <div>
-    <div class="row" v-for="gramercy in pendingGramercies" :key="gramercy.id">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-body">
-            <blockquote class="blockquote mb-0">
-              <p>{{gramercy.message}}</p>
-              <footer class="blockquote-footer">{{gramercy.senderHandle}}</footer>
-            </blockquote>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="row">
+    <Gramercy
+      v-for="gramercy in pendingGramercies"
+      :key="gramercy.id"
+      v-bind="gramercy"
+      v-bind:moderate="true"
+      class="col-md-5"
+    />
   </div>
 </template>
 
 <script>
+import Gramercy from "@/components/Gramercy.vue";
 import { mapState } from "vuex";
 
 export default {
   name: "ModerateGramercies",
+  components: {
+    Gramercy
+  },
   computed: { ...mapState(["pendingGramercies"]) },
-  created: function() {
-    this.$store.dispatch("loadPending", {
-      user: this.$auth.user
-    });
+  created: async function() {
+    const claims = await this.$auth.getIdTokenClaims();
+    const id_token = claims.__raw;
+    this.$store
+      .dispatch("loadPending", {
+        id_token: id_token
+      })
+      .then(() => {
+        this.$store.dispatch("loaded");
+      });
   }
 };
 </script>
