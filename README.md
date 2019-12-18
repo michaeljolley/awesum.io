@@ -2,13 +2,9 @@
     <img src="https://user-images.githubusercontent.com/1228996/71058284-e69fe800-2124-11ea-9c61-09587a7aa013.png"/>
 </p>
 
-| master                                                                                                                                                                                                        | Contributors                                                                 |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| [![Build Status](https://dev.azure.com/michaeljolley/awesum.io/_apis/build/status/awesum.io?branchName=master)](https://dev.azure.com/michaeljolley/awesum.io/_build/latest?definitionId=8&branchName=master) | <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section --> |
-
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-
-<!-- ALL-CONTRIBUTORS-BADGE:END --> |
+| master                                                                                                                                                                                                        | Contributors                                                                                                                                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [![Build Status](https://dev.azure.com/michaeljolley/awesum.io/_apis/build/status/awesum.io?branchName=master)](https://dev.azure.com/michaeljolley/awesum.io/_build/latest?definitionId=8&branchName=master) | <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section --> [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)<!-- ALL-CONTRIBUTORS-BADGE:END --> |
 
 ## Release Notes
 
