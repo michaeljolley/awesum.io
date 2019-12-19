@@ -1,5 +1,5 @@
 <template>
-  <div class="card pl-0 pr-0 mb-4 mr-4">
+  <div class="card pl-0 pr-0 mb-4 mr-md-4">
     <div class="card-body">
       <blockquote class="blockquote mb-0">
         <p>{{message}}</p>
@@ -11,10 +11,10 @@
     </div>
     <div class="card-footer" v-if="moderate">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-6">
           <button v-on:click="save(100)" v-bind:disabled="loading" class="btn btn-primary">Approve</button>
         </div>
-        <div class="col-md-6 text-right">
+        <div class="col-6 text-right">
           <div class="btn-group">
             <button
               v-if="!isHeld"
@@ -82,4 +82,25 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.btn-secondary,
+.btn-secondary.disabled,
+.btn-secondary:hover,
+.btn-secondary.active {
+  background-color: #babcbd;
+  border-color: #babcbd;
+}
+.btn-secondary:focus {
+  box-shadow: rgba(186, 188, 189, 0.5);
+}
+
+.btn-danger,
+.btn-danger.disabled,
+.btn-danger:hover,
+.btn-danger.active {
+  background-color: #f15a24;
+  border-color: #f15a24;
+}
+.btn-danger:focus {
+  box-shadow: rgba(241, 90, 36, 0.5);
+}
 </style>
