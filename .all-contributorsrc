@@ -52,6 +52,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "calebmckay",
+      "name": "Caleb McKay",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/11079725?v=4",
+      "profile": "https://github.com/calebmckay",
+      "contributions": [
+        "design"
+      ]
     }
   ],
   "contributorsPerLine": 7,
