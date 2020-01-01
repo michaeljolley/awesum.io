@@ -25,6 +25,7 @@ Thanks goes to these wonderful people ✨ ([emoji key](https://allcontributors.o
     <td align="center"><a href="https://c-j.tech"><img src="https://avatars0.githubusercontent.com/u/3969086?v=4" width="100px;" alt=""/><br /><sub><b>Chris Jones</b></sub></a><br /><a href="https://github.com/MichaelJolley/awesum.io/commits?author=cmjchrisjones" title="Documentation">📖</a></td>
     <td align="center"><a href="http://iamnotmyself.com"><img src="https://avatars3.githubusercontent.com/u/73120?v=4" width="100px;" alt=""/><br /><sub><b>Bobby Johnson</b></sub></a><br /><a href="https://github.com/MichaelJolley/awesum.io/commits?author=notmyself" title="Code">💻</a> <a href="#security-notmyself" title="Security">🛡️</a></td>
     <td align="center"><a href="https://github.com/danielpomas"><img src="https://avatars1.githubusercontent.com/u/42745795?v=4" width="100px;" alt=""/><br /><sub><b>Daniel Braun</b></sub></a><br /><a href="https://github.com/MichaelJolley/awesum.io/issues?q=author%3Adanielpomas" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="http://pardel.net"><img src="https://avatars0.githubusercontent.com/u/2171?v=4" width="100px;" alt=""/><br /><sub><b>Paul Ardeleanu</b></sub></a><br /><a href="https://github.com/MichaelJolley/awesum.io/issues?q=author%3Apardel" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
