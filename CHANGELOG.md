@@ -7,8 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+
+## [1.0.0]
+
 ### Added
 
 - Pretty much everything.
 
 ---
+
+[unreleased]: https://github.com/michaeljolley/awesum.io/compare/1.0.0...HEAD
+[1.0.0]: https://github.com/michaeljolley/awesum.io/compare/8e2a44c...1.0.0
