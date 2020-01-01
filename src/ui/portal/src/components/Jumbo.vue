@@ -36,6 +36,9 @@ export default {
   .jumbotron {
     background-position: 200% 60%;
   }
+  .jumbotron .display-4 {
+    font-size: 2.5rem;
+  }
 }
 @media only screen and (max-width: 576px) {
   .jumbotron {

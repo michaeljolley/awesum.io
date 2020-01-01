@@ -1,7 +1,7 @@
 <template>
   <footer class="footer mt-auto py-3">
     <div class="container">
-      <div class="row">
+      <div class="row wide">
         <div class="col-6">
           <span class="love">
             <a href="https://twitch.tv/BaldBeardedBuilder" target="_blank">
@@ -15,6 +15,22 @@
           <a href="https://github.com/michaeljolley/awesum.io" target="_blank">
             <i class="fab fa-github"></i>
           </a>
+        </div>
+      </div>
+      <div class="row d-block d-sm-none">
+        <div class="col-12">
+          <span class="love">
+            <a href="https://twitch.tv/BaldBeardedBuilder" target="_blank">
+              <i class="fab fa-twitch"></i>
+            </a>
+            <i class="text-muted">Crafted with love on Twitch.</i>
+          </span>
+        </div>
+        <div class="col-12 mt-1">
+          <a href="https://github.com/michaeljolley/awesum.io" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+          <i class="text-muted">Bug? Suggestion? Submit an issue.</i>
         </div>
       </div>
     </div>
@@ -56,5 +72,10 @@ export default {
 }
 .fa-twitter:hover {
   color: #55acee;
+}
+@media only screen and (max-width: 576px) {
+  .wide {
+    display: none;
+  }
 }
 </style>

@@ -2,7 +2,8 @@
   <div>
     <div v-if="!$auth.isAuthenticated && !$auth.loading">
       <a href="#" @click.prevent="login" class="btn btn-primary btn-login">
-        <i class="fab fa-twitter"></i> Login with Twitter
+        <i class="fab fa-twitter"></i>
+        <span class="d-none d-sm-inline">&nbsp;Login with Twitter</span>
       </a>
     </div>
     <div v-if="$auth.isAuthenticated && !$auth.loading">
