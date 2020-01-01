@@ -1,34 +1,42 @@
 <template>
-  <div>
-    <nav class="navbar navbar-light bg-light">
-      <span class="navbar-brand mb-0 h1">
-        <router-link to="/">
-          <img src="./assets/images/logo.png" class="logo" />
-        </router-link>
-      </span>
-      <Navigation />
-    </nav>
+  <div class="d-flex flex-column h-100">
+    <SiteHeader />
 
-    <div class="container">
+    <main role="main" class="flex-shrink-0">
       <router-view />
-    </div>
+    </main>
+
+    <SiteFooter />
   </div>
 </template>
 
 <script>
-import Navigation from "./components/Navigation.vue";
+import SiteFooter from "./components/SiteFooter.vue";
+import SiteHeader from "./components/SiteHeader.vue";
 
 export default {
   name: "app",
   components: {
-    Navigation
+    SiteFooter,
+    SiteHeader
   }
 };
 </script>
 
 <style>
-.logo {
-  width: 250px;
-  margin-top: 25px;
+.bg-white {
+  background: #fff;
+}
+
+.btn-primary,
+.btn-primary.disabled,
+.btn-primary:hover,
+.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: #0ac9af;
+  border-color: #0ac9af;
+  font-weight: bold;
+}
+.btn-primary:not(:disabled):not(.disabled):active:focus {
+  box-shadow: rgba(10, 201, 175, 0.5);
 }
 </style>

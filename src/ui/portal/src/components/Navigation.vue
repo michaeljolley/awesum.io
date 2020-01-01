@@ -1,7 +1,9 @@
 <template>
   <div>
     <div v-if="!$auth.isAuthenticated && !$auth.loading">
-      <a href="#" @click.prevent="login" class="btn btn-primary">Login</a>
+      <a href="#" @click.prevent="login" class="btn btn-primary btn-login">
+        <i class="fab fa-twitter"></i> Login with Twitter
+      </a>
     </div>
     <div v-if="$auth.isAuthenticated && !$auth.loading">
       <div class="btn-group">
@@ -12,10 +14,10 @@
           aria-haspopup="true"
           aria-expanded="false"
         >
-          <img :src="user.picture" />
-          {{user.name}}
+          <img :src="user.picture" class="user-picture" />
+          <span class="d-none d-md-inline">{{user.name}}</span>
         </button>
-        <div class="dropdown-menu">
+        <div class="dropdown-menu dropdown-menu-right">
           <router-link class="dropdown-item" to="/moderate">Moderation</router-link>
           <a class="dropdown-item" href="#" @click.prevent="logout">
             Log Out
@@ -52,4 +54,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.user-picture {
+  width: 36px;
+}
+.btn-login {
+  background-color: #55acee;
+  border-color: #55acee;
+}
+.btn-login:hover,
+.btn-login:active {
+  background-color: #4387ba;
+  border-color: #4387ba;
+}
 </style>

@@ -1,20 +1,26 @@
 <template>
   <div>
-    <div class="row">
-      <div class="col-md-12">
-        <h2>Moderate</h2>
-        <ModerateGramercies />
+    <Jumbo />
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Moderation</h2>
+          <ModerateGramercies />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Jumbo from "@/components/Jumbo.vue";
 import ModerateGramercies from "@/components/ModerateGramercies.vue";
 
 export default {
   name: "Moderate",
   components: {
+    Jumbo,
     ModerateGramercies
   }
 };
