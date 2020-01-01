@@ -1,38 +1,29 @@
 <template>
-  <div>
-    <div class="container-fluid bg-white ml-0 mr-0 pl-0 pr-0">
-      <div class="container ml-0 mr-0 pl-0 pr-0 mr-md-auto ml-md-auto">
-        <nav class="navbar navbar-light">
-          <span class="navbar-brand mb-0 h1">
-            <router-link to="/">
-              <img src="./assets/images/logo-full.png" class="logo" />
-            </router-link>
-          </span>
-          <Navigation />
-        </nav>
-      </div>
-    </div>
+  <div class="d-flex flex-column h-100">
+    <SiteHeader />
 
-    <router-view />
+    <main role="main" class="flex-shrink-0">
+      <router-view />
+    </main>
+
+    <SiteFooter />
   </div>
 </template>
 
 <script>
-import Navigation from "./components/Navigation.vue";
+import SiteFooter from "./components/SiteFooter.vue";
+import SiteHeader from "./components/SiteHeader.vue";
 
 export default {
   name: "app",
   components: {
-    Navigation
+    SiteFooter,
+    SiteHeader
   }
 };
 </script>
 
 <style>
-.logo {
-  width: 250px;
-}
-
 .bg-white {
   background: #fff;
 }

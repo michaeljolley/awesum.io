@@ -1,7 +1,9 @@
 <template>
   <div>
     <div v-if="!$auth.isAuthenticated && !$auth.loading">
-      <a href="#" @click.prevent="login" class="btn btn-primary">Login</a>
+      <a href="#" @click.prevent="login" class="btn btn-primary btn-login">
+        <i class="fab fa-twitter"></i> Login with Twitter
+      </a>
     </div>
     <div v-if="$auth.isAuthenticated && !$auth.loading">
       <div class="btn-group">
@@ -54,5 +56,14 @@ export default {
 <style scoped>
 .user-picture {
   width: 36px;
+}
+.btn-login {
+  background-color: #55acee;
+  border-color: #55acee;
+}
+.btn-login:hover,
+.btn-login:active {
+  background-color: #4387ba;
+  border-color: #4387ba;
 }
 </style>
