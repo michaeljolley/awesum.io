@@ -62,6 +62,15 @@
       "contributions": [
         "design"
       ]
+    },
+    {
+      "login": "Windos",
+      "name": "Joshua King",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/6955786?v=4",
+      "profile": "https://twitter.com/WindosNZ",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
