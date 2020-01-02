@@ -14,7 +14,7 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-4">
+        <div class="col-12 col-lg-4 mb-3">
           <div class="card">
             <div class="card-body">
               <h4 class="card-title">What is it all about?</h4>
@@ -37,7 +37,7 @@
             </div>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-12 col-lg-4 mb-3">
           <div class="card">
             <div class="card-body">
               <h4 class="card-title">How does it work?</h4>
@@ -64,7 +64,7 @@
             </div>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-12 col-lg-4 mb-3">
           <div class="card">
             <div class="card-body">
               <h4 class="card-title">How can I help?</h4>
