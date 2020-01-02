@@ -27,6 +27,7 @@ Thanks goes to these wonderful people ✨ ([emoji key](https://allcontributors.o
     <td align="center"><a href="https://github.com/danielpomas"><img src="https://avatars1.githubusercontent.com/u/42745795?v=4" width="100px;" alt=""/><br /><sub><b>Daniel Braun</b></sub></a><br /><a href="https://github.com/MichaelJolley/awesum.io/issues?q=author%3Adanielpomas" title="Bug reports">🐛</a> <a href="https://github.com/MichaelJolley/awesum.io/commits?author=danielpomas" title="Code">💻</a></td>
     <td align="center"><a href="http://pardel.net"><img src="https://avatars0.githubusercontent.com/u/2171?v=4" width="100px;" alt=""/><br /><sub><b>Paul Ardeleanu</b></sub></a><br /><a href="https://github.com/MichaelJolley/awesum.io/issues?q=author%3Apardel" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/calebmckay"><img src="https://avatars0.githubusercontent.com/u/11079725?v=4" width="100px;" alt=""/><br /><sub><b>Caleb McKay</b></sub></a><br /><a href="#design-calebmckay" title="Design">🎨</a></td>
+    <td align="center"><a href="https://twitter.com/WindosNZ"><img src="https://avatars2.githubusercontent.com/u/6955786?v=4" width="100px;" alt=""/><br /><sub><b>Joshua King</b></sub></a><br /><a href="https://github.com/MichaelJolley/awesum.io/issues?q=author%3AWindos" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
