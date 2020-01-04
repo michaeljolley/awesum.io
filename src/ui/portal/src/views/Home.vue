@@ -2,10 +2,7 @@
   <div>
     <Jumbo />
 
-    <div
-      class="container-fluid userGramercies"
-      v-if="$auth.isAuthenticated && !$auth.loading"
-    >
+    <div class="container-fluid userGramercies" v-if="$auth.isAuthenticated && !$auth.loading">
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-xl-6">
@@ -18,15 +15,21 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-4">
+        <div class="col-12 col-lg-4 mb-3">
           <div class="card">
             <div class="card-body">
               <h4 class="card-title">What is it all about?</h4>
               <p class="card-text">Awesum.io has three goals:</p>
               <ul>
-                <li><b>Help</b> those around us.</li>
-                <li><b>Encourage</b> others to do the same.</li>
-                <li><b>Acknowledge</b> those who do.</li>
+                <li>
+                  <b>Help</b> those around us.
+                </li>
+                <li>
+                  <b>Encourage</b> others to do the same.
+                </li>
+                <li>
+                  <b>Acknowledge</b> those who do.
+                </li>
               </ul>
               <p class="card-text">
                 Let's face it. Whether a relative, friend, coworker or complete
@@ -36,7 +39,7 @@
             </div>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-12 col-lg-4 mb-3">
           <div class="card">
             <div class="card-body">
               <h4 class="card-title">How does it work?</h4>
@@ -65,7 +68,7 @@
             </div>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-12 col-lg-4 mb-3">
           <div class="card">
             <div class="card-body">
               <h4 class="card-title">How can I help?</h4>
@@ -82,9 +85,10 @@
                 </li>
                 <li>
                   Stop by our live-stream on
-                  <a href="https://twitch.tv/baldbeardedbuilder" target="_blank"
-                    >Twitch</a
-                  >
+                  <a
+                    href="https://twitch.tv/baldbeardedbuilder"
+                    target="_blank"
+                  >Twitch</a>
                   and let us know what you think!
                 </li>
               </ul>
