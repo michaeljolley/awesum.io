@@ -6,7 +6,6 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-xl-6">
-            <h2>Someone thinks you're #awesum!</h2>
             <UserGramercies />
           </div>
         </div>
