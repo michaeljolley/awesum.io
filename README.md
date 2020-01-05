@@ -6,6 +6,12 @@
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
 | [![Build Status](https://dev.azure.com/michaeljolley/awesum.io/_apis/build/status/awesum.io?branchName=master)](https://dev.azure.com/michaeljolley/awesum.io/_build/latest?definitionId=8&branchName=master) | [![Netlify Status](https://api.netlify.com/api/v1/badges/25205e45-f294-4da5-ac21-fa8fea560010/deploy-status)](https://app.netlify.com/sites/epic-lumiere-23ca13/deploys) | [![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors) |
 
+## What is Awesum.IO?
+
+Here is a brief clip on the what/why/how of Awesum.IO
+
+<iframe src="https://player.twitch.tv/?autoplay=false&video=v523855530" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe><a href="https://www.twitch.tv/videos/523855530?tt_content=text_link&tt_medium=vod_embed" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px; text-decoration:underline;">Watch What is awesum.io? from BaldBeardedBuilder on www.twitch.tv</a>
+
 ## Release Notes
 
 See [CHANGELOG.md](CHANGELOG.md)
