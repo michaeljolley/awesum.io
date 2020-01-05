@@ -4,7 +4,7 @@
 
 | master                                                                                                                                                                                                        | Netlify                                                                                                                                                                  | Contributors                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| [![Build Status](https://dev.azure.com/michaeljolley/awesum.io/_apis/build/status/awesum.io?branchName=master)](https://dev.azure.com/michaeljolley/awesum.io/_build/latest?definitionId=8&branchName=master) | [![Netlify Status](https://api.netlify.com/api/v1/badges/25205e45-f294-4da5-ac21-fa8fea560010/deploy-status)](https://app.netlify.com/sites/epic-lumiere-23ca13/deploys) | [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors) |
+| [![Build Status](https://dev.azure.com/michaeljolley/awesum.io/_apis/build/status/awesum.io?branchName=master)](https://dev.azure.com/michaeljolley/awesum.io/_build/latest?definitionId=8&branchName=master) | [![Netlify Status](https://api.netlify.com/api/v1/badges/25205e45-f294-4da5-ac21-fa8fea560010/deploy-status)](https://app.netlify.com/sites/epic-lumiere-23ca13/deploys) | [![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors) |
 
 ## Release Notes
 
@@ -33,4 +33,5 @@ Thanks goes to these wonderful people ✨ ([emoji key](https://allcontributors.o
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
