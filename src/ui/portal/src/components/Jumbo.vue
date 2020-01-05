@@ -25,6 +25,7 @@ export default {
   background-image: url("https://res.cloudinary.com/dk3rdh3yo/image/upload/v1577843174/awesumbg_anzabw.png");
   background-repeat: no-repeat;
   background-position: 80% 60%;
+  margin-bottom: 0px;
 }
 
 @media only screen and (max-width: 992px) {
@@ -35,6 +36,9 @@ export default {
 @media only screen and (max-width: 768px) {
   .jumbotron {
     background-position: 200% 60%;
+  }
+  .jumbotron .display-4 {
+    font-size: 2.5rem;
   }
 }
 @media only screen and (max-width: 576px) {
