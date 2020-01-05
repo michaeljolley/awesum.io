@@ -8,9 +8,7 @@
 
 ## What is Awesum.IO?
 
-Here is a brief clip on the what/why/how of Awesum.IO
-
-<iframe src="https://player.twitch.tv/?autoplay=false&video=v523855530" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe><a href="https://www.twitch.tv/videos/523855530?tt_content=text_link&tt_medium=vod_embed" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px; text-decoration:underline;">Watch What is awesum.io? from BaldBeardedBuilder on www.twitch.tv</a>
+<a href="https://www.twitch.tv/videos/523855530?tt_content=text_link&tt_medium=vod_embed" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px; text-decoration:underline;">Here is a brief clip on the what/why/how of Awesum.IO</a>
 
 ## Release Notes
 
