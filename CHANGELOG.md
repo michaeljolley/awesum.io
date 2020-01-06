@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fixed a bug that allowed the Moderator navigation link to display for unauthorized users
+- Corrected link in our CONTRIBUTING.md
+
+### Updated
+
+- Added margin to the top of main content to separate from the jumbotron
 
 ## [1.0.0]
 
