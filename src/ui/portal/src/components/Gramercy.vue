@@ -4,9 +4,9 @@
       <blockquote class="blockquote mb-0">
         <p>{{message}}</p>
         <footer class="blockquote-footer" v-if="!isAnonymous">
-          <a v-bind:href="twitterUrl" target="_blank">{{senderHandle}}</a>
+          <a v-bind:href="senderTwitterUrl" target="_blank">{{senderHandle}}</a> for <a v-bind:href="recipientTwitterUrl" target="_blank">{{recipientHandle}}</a>
         </footer>
-        <footer class="blockquote-footer" v-else>Anonymous</footer>
+        <footer class="blockquote-footer" v-else>Anonymous</footer> for <a v-bind:href="recipientTwitterUrl" target="_blank">{{recipientHandle}}</a>
       </blockquote>
     </div>
     <div class="card-footer" v-if="moderate">
@@ -39,13 +39,17 @@ export default {
     id: String,
     message: String,
     senderHandle: String,
+    recipientHandle: String,
     status: Number,
     moderate: Boolean
   },
   computed: {
     ...mapState(["loading"]),
-    twitterUrl: function() {
+    senderTwitterUrl: function() {
       return `https://twitter.com/${this.senderHandle}`;
+    },
+    recipientTwitterUrl: function() {
+      return `https://twitter.com/${this.recipientHandle}`;
     },
     isAnonymous: function() {
       return (
