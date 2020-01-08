@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Updated
 
 - Added margin to the top of main content to separate from the jumbotron
+- Added recipient Twitter handle on gramercy card,
+  enabling selective moderation for tweets with multiple mentions
 
 ## [1.0.0]
 
