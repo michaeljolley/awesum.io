@@ -4,9 +4,10 @@
       <blockquote class="blockquote mb-0">
         <p>{{message}}</p>
         <footer class="blockquote-footer" v-if="!isAnonymous">
-          <a v-bind:href="senderTwitterUrl" target="_blank">{{senderHandle}}</a> for <a v-bind:href="recipientTwitterUrl" target="_blank">{{recipientHandle}}</a>
+          <a v-bind:href="senderTwitterUrl" target="_blank">{{senderHandle}}</a>
         </footer>
-        <footer class="blockquote-footer" v-else>Anonymous</footer> for <a v-bind:href="recipientTwitterUrl" target="_blank">{{recipientHandle}}</a>
+        <footer class="blockquote-footer" v-else>Anonymous</footer>
+         for <a v-bind:href="recipientTwitterUrl" target="_blank">{{recipientHandle}}</a>
       </blockquote>
     </div>
     <div class="card-footer" v-if="moderate">
