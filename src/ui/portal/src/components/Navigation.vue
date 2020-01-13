@@ -19,7 +19,7 @@
           <span class="d-none d-md-inline">{{user.name}}</span>
         </button>
         <div class="dropdown-menu dropdown-menu-right">
-          <router-link class="dropdown-item" to="/moderate">Moderation</router-link>
+          <router-link v-if="isModerator" class="dropdown-item" to="/moderate">Moderation</router-link>
           <a class="dropdown-item" href="#" @click.prevent="logout">
             Log Out
             <span class="pull-right glyphicon glyphicon-log-out"></span>
@@ -39,6 +39,12 @@ export default {
         return this.$auth.user;
       }
       return null;
+    },
+    isModerator() {
+      if (this.$auth.user) {
+        return this.$auth.hasTokenClaim("awesum-moderator");
+      }
+      return false;
     }
   },
   methods: {
