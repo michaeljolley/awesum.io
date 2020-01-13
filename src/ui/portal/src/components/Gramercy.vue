@@ -3,10 +3,13 @@
     <div class="card-body">
       <blockquote class="blockquote mb-0">
         <p>{{message}}</p>
-        <footer>
+        <footer class="blockquote-footer">
           <a v-if="!isAnonymous" v-bind:href="senderTwitterUrl" target="_blank">{{senderHandle}}</a>
           <span v-else>Anonymous</span>
-          <span> for <a v-bind:href="recipientTwitterUrl" target="_blank">{{recipientHandle}}</a><span>
+          <span v-if="moderate">
+            for
+            <a v-bind:href="recipientTwitterUrl" target="_blank">{{recipientHandle}}</a>
+          </span>
         </footer>
       </blockquote>
     </div>
