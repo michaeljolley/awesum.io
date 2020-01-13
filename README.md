@@ -31,7 +31,10 @@ Thanks goes to these wonderful people ✨ ([emoji key](https://allcontributors.o
     <td align="center"><a href="https://github.com/danielpomas"><img src="https://avatars1.githubusercontent.com/u/42745795?v=4" width="100px;" alt=""/><br /><sub><b>Daniel Braun</b></sub></a><br /><a href="https://github.com/MichaelJolley/awesum.io/issues?q=author%3Adanielpomas" title="Bug reports">🐛</a> <a href="https://github.com/MichaelJolley/awesum.io/commits?author=danielpomas" title="Code">💻</a></td>
     <td align="center"><a href="http://pardel.net"><img src="https://avatars0.githubusercontent.com/u/2171?v=4" width="100px;" alt=""/><br /><sub><b>Paul Ardeleanu</b></sub></a><br /><a href="https://github.com/MichaelJolley/awesum.io/issues?q=author%3Apardel" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/calebmckay"><img src="https://avatars0.githubusercontent.com/u/11079725?v=4" width="100px;" alt=""/><br /><sub><b>Caleb McKay</b></sub></a><br /><a href="#design-calebmckay" title="Design">🎨</a></td>
-    <td align="center"><a href="https://twitter.com/WindosNZ"><img src="https://avatars2.githubusercontent.com/u/6955786?v=4" width="100px;" alt=""/><br /><sub><b>Joshua King</b></sub></a><br /><a href="https://github.com/MichaelJolley/awesum.io/issues?q=author%3AWindos" title="Bug reports">🐛</a> <a href="#security-Windos" title="Security">🛡️</a></td>
+    <td align="center"><a href="https://twitter.com/WindosNZ"><img src="https://avatars2.githubusercontent.com/u/6955786?v=4" width="100px;" alt=""/><br /><sub><b>Joshua King</b></sub></a><br /><a href="https://github.com/MichaelJolley/awesum.io/issues?q=author%3AWindos" title="Bug reports">🐛</a> <a href="#security-Windos" title="Security">🛡️</a> <a href="https://github.com/MichaelJolley/awesum.io/commits?author=Windos" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/parithon"><img src="https://avatars3.githubusercontent.com/u/8602418?v=4" width="100px;" alt=""/><br /><sub><b>Anthony Conrad (parithon)</b></sub></a><br /><a href="https://github.com/MichaelJolley/awesum.io/commits?author=parithon" title="Code">💻</a></td>
   </tr>
 </table>
 
