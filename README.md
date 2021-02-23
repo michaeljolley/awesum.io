@@ -10,6 +10,12 @@
 
 <a href="https://www.twitch.tv/videos/523855530?tt_content=text_link&tt_medium=vod_embed" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px; text-decoration:underline;">Here is a brief clip on the what/why/how of Awesum.IO</a>
 
+## Powershell
+
+If you'd like to be able to use the `awesum` command in Powershell to write out a random message
+from Awesum.io, use this [Gist](https://gist.github.com/MichaelJolley/80e398340011b0f5a0eb4c89b855f508)
+and replace the Twitter User Id to your own.
+
 ## Release Notes
 
 See [CHANGELOG.md](CHANGELOG.md)

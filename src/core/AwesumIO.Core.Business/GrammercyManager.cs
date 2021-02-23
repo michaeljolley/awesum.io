@@ -139,6 +139,37 @@ namespace AwesumIO.Core.Business
             return results;
         }
 
+        public async Task<OpResult<Gramercy>> GetRandomGramercyAsync(string twitterId)
+        {
+            OpResult<Gramercy> result = new OpResult<Gramercy>();
+
+            try
+            {
+                FaunaContext faunaContext = new FaunaContext();
+                OpResults<Value> userGrammerciesResults = await faunaContext.GetGramerciesByRecipientIdAsync(twitterId);
+
+                if (userGrammerciesResults.Code != Constants.Enums.OperationResultCode.Success)
+                {
+                    result.CopyFrom(userGrammerciesResults);
+                    return result;
+                }
+
+                if (userGrammerciesResults.Results.Count() > 0)
+                {
+                    Random rando = new Random();
+                    result.Result = userGrammerciesResults.Results
+                                                          .ElementAt(rando.Next(0, userGrammerciesResults.Results.Count() - 1))
+                                                          .ToGramercy();
+                }
+            }
+            catch (Exception ex)
+            {
+                result.FromException(ex);
+            }
+
+            return result;
+        }
+
         public async Task<OpResult<Gramercy>> UpdateGrammercy(string grammercyId, int status)
         {
             OpResult<Gramercy> result = new OpResult<Gramercy>();
