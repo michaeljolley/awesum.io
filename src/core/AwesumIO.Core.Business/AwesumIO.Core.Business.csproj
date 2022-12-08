@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="FaunaDB.Client" Version="2.5.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="TweetinviAPI" Version="4.0.2" />
   </ItemGroup>
 
